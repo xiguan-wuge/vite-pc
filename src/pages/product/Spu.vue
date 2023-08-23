@@ -1,0 +1,3 @@
+<template>
+  Spu
+</template>

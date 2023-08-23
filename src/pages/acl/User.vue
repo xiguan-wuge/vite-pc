@@ -1,0 +1,3 @@
+<template>
+  User page
+</template>
