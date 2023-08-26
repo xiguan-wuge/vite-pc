@@ -13,7 +13,6 @@ declare module 'vue' {
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
-    ElDrapdown: typeof import('element-plus/es')['ElDrapdown']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
@@ -35,6 +34,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Setting: typeof import('./components/layout/nav/Setting.vue')['default']
+    TestRepeatRequest: typeof import('./components/TestRepeatRequest.vue')['default']
     VerifyCode: typeof import('./components/VerifyCode.vue')['default']
   }
 }
