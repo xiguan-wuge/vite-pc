@@ -1,16 +1,16 @@
 <template>
   <div class="nav">
     <div class="nav-left">
-      <BreadCrumb></BreadCrumb>
+      <BreadCrumb />
     </div>
     <div class="nav-right">
-      <Setting></Setting>
+      <Setting />
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import BreadCrumb from "./breadcrumb.vue";
-import Setting from "./Setting.vue";
+import BreadCrumb from './breadcrumb.vue'
+import Setting from './Setting.vue'
 </script>
 
 <style lang="less" scoped>

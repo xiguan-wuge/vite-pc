@@ -1,3 +1,1 @@
-<template>
-  Attr
-</template>
+<template>Attr</template>

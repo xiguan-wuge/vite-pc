@@ -1,3 +1,1 @@
-<template>
-  User page
-</template>
+<template>User page</template>

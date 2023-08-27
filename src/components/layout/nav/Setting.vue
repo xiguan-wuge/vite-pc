@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import useUserStore from '@/store/modules/user';
+import useUserStore from '@/store/modules/user'
 import { useRouter, useRoute } from 'vue-router'
 
 const userStore = useUserStore()
@@ -33,7 +33,6 @@ function logout() {
     }
   })
 }
-
 </script>
 
 <style lang="less" scoped>

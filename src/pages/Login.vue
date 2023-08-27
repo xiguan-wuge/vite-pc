@@ -1,16 +1,14 @@
 <template>
   <div class="login">
     <el-form :rules="rules" :model="loginForm" ref="form">
-      <el-form-item 
-        prop="userName"
-      >
+      <el-form-item prop="userName">
         <el-input
           :prefix-icon="User"
           v-model="loginForm.userName"
           cleable
           placeholder="用户名"
           size="large"
-        ></el-input>
+        />
       </el-form-item>
       <el-form-item prop="password">
         <el-input
@@ -21,7 +19,7 @@
           size="large"
           placeholder="密码"
           cleable
-        ></el-input>
+        />
       </el-form-item>
       <el-form-item prop="verifyCode">
         <el-input
@@ -33,7 +31,7 @@
           maxlength="4"
         >
           <template #append>
-            <VerifyCode :identifyCode="identifyCode" @click="refreshCode"></VerifyCode>
+            <VerifyCode :identifyCode="identifyCode" @click="refreshCode" />
           </template>
         </el-input>
       </el-form-item>
@@ -54,12 +52,12 @@
 
 <script setup lang="ts">
 import VerifyCode from '@/components/VerifyCode.vue'
-import {User, Lock, Warning} from '@element-plus/icons-vue'
+import { User, Lock, Warning } from '@element-plus/icons-vue'
 import { ElNotification } from 'element-plus'
 
-import {ref, reactive} from 'vue'
+import { ref, reactive } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import {makeCode, getTime} from '@/utils'
+import { makeCode, getTime } from '@/utils'
 import useUserStore from '@/store/modules/user'
 
 const $router = useRouter()
@@ -67,40 +65,39 @@ const $route = useRoute()
 
 const userStore = useUserStore()
 
-
 // 验证码
 const identifyCode = ref(makeCode(4))
 const refreshCode = () => {
   identifyCode.value = makeCode(4)
 }
 
-const loginForm =reactive({
+const loginForm = reactive({
   userName: '',
   password: '',
   verifyCode: ''
 })
-const userNameValidator = (rule:any, value:string, callback:Function) => {
-  console.log('rule0', rule);
-  
-  if(value.length === 0) {
+const userNameValidator = (rule: any, value: string, callback: Function) => {
+  console.log('rule0', rule)
+
+  if (value.length === 0) {
     callback(new Error('请输入账号'))
   } else {
     callback()
   }
 }
-const passwordValidator = (rule:any, value:string, callback:Function) => {
-  console.log('rule1', rule);
+const passwordValidator = (rule: any, value: string, callback: Function) => {
+  console.log('rule1', rule)
 
-  if(!value.length) {
+  if (!value.length) {
     callback(new Error('请输入密码'))
-  } else if(value.length < 6 || value.length >16) {
+  } else if (value.length < 6 || value.length > 16) {
     callback(new Error('密码长度应该在6~16位之间'))
   } else {
     callback()
   }
 }
 const verifyCodeValidator = (rule: any, value: string, callback: Function) => {
-  console.log('rule2', rule);
+  console.log('rule2', rule)
 
   if (value.length === 0) {
     callback(new Error('请输入验证码'))
@@ -133,7 +130,6 @@ const rules = {
   ]
 }
 
-
 const loading = ref(false)
 const form = ref()
 async function handleLogin() {
@@ -159,11 +155,10 @@ async function handleLogin() {
     loading.value = false
     ElNotification({
       type: 'error',
-      message: (error as Error).message,
+      message: (error as Error).message
     })
   }
 }
-
 </script>
 
 <style lang="less" scoped>

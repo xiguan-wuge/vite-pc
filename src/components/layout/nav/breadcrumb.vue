@@ -7,7 +7,7 @@
       :to="item.path"
     >
       <el-icon style="vertical-align: middle">
-        <component :is="item.meta.icon"></component>
+        <component :is="item.meta.icon" />
       </el-icon>
       <span style="margin: 0 5px; vertical-align: middle">
         {{ item.meta.title }}
@@ -17,5 +17,5 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRight } from "@element-plus/icons-vue";
+import { ArrowRight } from '@element-plus/icons-vue'
 </script>

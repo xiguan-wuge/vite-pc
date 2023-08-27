@@ -1,19 +1,19 @@
-import { Component } from "vue";
-import { createRouter, createWebHashHistory } from "vue-router";
+import { Component } from 'vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-const Layout = () => import("@/components/layout/layout.vue");
-const Home = () => import("@/pages/Home.vue");
+const Layout = () => import('@/components/layout/layout.vue')
+const Home = () => import('@/pages/Home.vue')
 // 通用路由页面
 
 export type routeType = {
-  path: string,
-  component: Component,
-  name: string,
+  path: string
+  component: Component
+  name: string
   meta: {
-    title: string,
+    title: string
     hidden?: boolean
     icon: string
-  },
+  }
   children?: routeType[]
 }
 export const commonRoutes = [
@@ -23,30 +23,30 @@ export const commonRoutes = [
     name: 'login',
     meta: {
       title: 'login',
-      hidden: true, // 是否在侧边导航栏中展示
-    },
+      hidden: true // 是否在侧边导航栏中展示
+    }
   },
   {
-    path: "/",
-    name: "Layout",
+    path: '/',
+    name: 'Layout',
     component: Layout,
     meta: {
-      title: "",
+      title: '',
       hidden: false,
-      icon: "",
+      icon: ''
     },
-    redirect: "/home",
+    redirect: '/home',
     children: [
       {
-        path: "/home",
+        path: '/home',
         component: Home,
         meta: {
-          title: "首页",
+          title: '首页',
           hidden: false,
-          icon: "HomeFilled",
-        },
-      },
-    ],
+          icon: 'HomeFilled'
+        }
+      }
+    ]
   },
   {
     path: '/screen',
@@ -56,8 +56,8 @@ export const commonRoutes = [
       title: 'Screen',
       hidden: false,
       icon: 'Platform'
-    },
-  },
+    }
+  }
   // 因存在动态路由，在动态路由加载前，会触发404匹配，显示notFound页面，故需要将404匹配作为动态路由添加
   // {
   //   // path: '/404',
@@ -69,50 +69,50 @@ export const commonRoutes = [
   //     hidden: true,
   //   },
   // },
-];
+]
 // 异步路由
 export const asyncRoutes = [
   {
-    path: "/product",
-    name: "Product",
+    path: '/product',
+    name: 'Product',
     component: Layout,
     meta: {
-      title: "品牌管理",
-      icon: "Goods",
-      hidden: false,
+      title: '品牌管理',
+      icon: 'Goods',
+      hidden: false
     },
     children: [
       {
-        path: "/product/trademark",
-        component: () => import("@/pages/product/Trademark.vue"),
-        name: "Trademark",
+        path: '/product/trademark',
+        component: () => import('@/pages/product/Trademark.vue'),
+        name: 'Trademark',
         meta: {
-          title: "品牌管理",
-          icon: "ShoppingCart",
-          hidden: false,
-        },
+          title: '品牌管理',
+          icon: 'ShoppingCart',
+          hidden: false
+        }
       },
       {
-        path: "/product/attr",
-        component: () => import("@/pages/product/Attr.vue"),
-        name: "Attr",
+        path: '/product/attr',
+        component: () => import('@/pages/product/Attr.vue'),
+        name: 'Attr',
         meta: {
-          title: "属性管理",
-          icon: "Management",
-          hidden: false,
-        },
+          title: '属性管理',
+          icon: 'Management',
+          hidden: false
+        }
       },
       {
-        path: "/product/spu",
-        component: () => import("@/pages/product/Spu.vue"),
-        name: "Spu",
+        path: '/product/spu',
+        component: () => import('@/pages/product/Spu.vue'),
+        name: 'Spu',
         meta: {
-          title: "Spu",
-          icon: "SetUp",
-          hidden: false,
-        },
-      },
-    ],
+          title: 'Spu',
+          icon: 'SetUp',
+          hidden: false
+        }
+      }
+    ]
   },
   {
     path: '/acl',
@@ -121,7 +121,7 @@ export const asyncRoutes = [
     meta: {
       title: '权限管理',
       hidden: false,
-      icon: 'Lock',
+      icon: 'Lock'
     },
     redirect: '/acl/user',
     children: [
@@ -132,8 +132,8 @@ export const asyncRoutes = [
         meta: {
           title: '用户管理',
           hidden: false,
-          icon: 'User',
-        },
+          icon: 'User'
+        }
       },
       {
         path: '/acl/role',
@@ -142,8 +142,8 @@ export const asyncRoutes = [
         meta: {
           title: '角色管理',
           hidden: false,
-          icon: 'Avatar',
-        },
+          icon: 'Avatar'
+        }
       },
       {
         path: '/acl/permission',
@@ -152,34 +152,34 @@ export const asyncRoutes = [
         meta: {
           title: '菜单管理',
           hidden: false,
-          icon: 'List',
-        },
-      },
-    ],
-  },
-];
-export const anyRoute = [{
-  path: '/:pathMatch(.*)*',
-  // redirect: '/404',
-  name: 'NotFound',
-  component: () => import('@/pages/NotFound.vue'),
-  meta: {
-    title: '任意路由',
-    hidden: true,
-  },
-}]
+          icon: 'List'
+        }
+      }
+    ]
+  }
+]
+export const anyRoute = [
+  {
+    path: '/:pathMatch(.*)*',
+    // redirect: '/404',
+    name: 'NotFound',
+    component: () => import('@/pages/NotFound.vue'),
+    meta: {
+      title: '任意路由',
+      hidden: true
+    }
+  }
+]
 export const routes = [
-  ...commonRoutes,
+  ...commonRoutes
   // anyRoute,
   // ...asyncRoutes
-];
+]
 // console.log('routes', routes);
-
-
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router

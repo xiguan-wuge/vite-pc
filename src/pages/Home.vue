@@ -1,7 +1,7 @@
 <template>
   this is home page
-  <hr>  
-  <TestRepeatRequest></TestRepeatRequest>
+  <hr />
+  <TestRepeatRequest />
 </template>
 
 <script lang="ts" setup>

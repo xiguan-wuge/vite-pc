@@ -5,8 +5,7 @@ export const randomNum = (min: number, max: number) => {
 export const makeCode = (len: number) => {
   let res = ''
   for (let i = 0; i < len; i++) {
-    res +=
-    randomCodes[randomNum(0, randomCodes.length)]
+    res += randomCodes[randomNum(0, randomCodes.length)]
   }
   return res
 }
@@ -25,4 +24,3 @@ export const getTime = () => {
   }
   return msg
 }
-

@@ -1,3 +1,1 @@
-<template>
-  Spu
-</template>
+<template>Spu</template>

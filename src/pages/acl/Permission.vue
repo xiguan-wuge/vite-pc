@@ -1,3 +1,1 @@
-<template>
-  Permission page
-</template>
+<template>Permission page</template>

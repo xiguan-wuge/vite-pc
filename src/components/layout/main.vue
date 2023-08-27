@@ -4,12 +4,11 @@
     <router-view v-slot="{ Component }">
       <transition name="fade">
         <div :key="$route.path">
-          <component :is="Component"></component>
+          <component :is="Component" />
         </div>
       </transition>
     </router-view>
   </div>
-  
 </template>
 
 <style lang="less" scoped>

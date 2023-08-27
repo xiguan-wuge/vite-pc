@@ -1,3 +1,1 @@
-<template>
-  Trademark
-</template>
+<template>Trademark</template>

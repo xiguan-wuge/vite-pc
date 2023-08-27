@@ -1,3 +1,1 @@
-<template>
-  screen
-</template>
+<template>screen</template>

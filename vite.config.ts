@@ -7,10 +7,12 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import ElementPlus from 'unplugin-element-plus/vite'
+import EslintPlugin from 'vite-plugin-eslint'
 
 const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     AutoImport({
@@ -39,6 +41,16 @@ export default defineConfig({
       autoInstall: true,
     }),
     ElementPlus({}), // 按需引入js组件时，自动导入对应样式
+    EslintPlugin({
+      include: [
+        'src/**/*.js',
+        'src/**/*.ts',
+        'src/**/*.vue',
+        'src/*.js',
+        'src/*.ts',
+        'src/*.vue',
+      ]
+    })
   ],
   resolve: {
     alias: {
@@ -51,5 +63,6 @@ export default defineConfig({
         javascriptEnabled: true,
       }
     }
-  }
+  },
+
 });
