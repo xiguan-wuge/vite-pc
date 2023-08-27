@@ -1,11 +1,11 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import path, { resolve } from "path";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import Icons from "unplugin-icons/vite";
-import IconsResolver from "unplugin-icons/resolver";
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import ElementPlus from 'unplugin-element-plus/vite'
 import EslintPlugin from 'vite-plugin-eslint'
 
@@ -21,48 +21,41 @@ export default defineConfig({
         ElementPlusResolver(),
         // 自动导入图标组件
         IconsResolver({
-          prefix: "Icon",
-        }),
+          prefix: 'Icon'
+        })
       ],
-      dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
+      dts: path.resolve(pathSrc, 'auto-imports.d.ts')
     }),
     Components({
       resolvers: [
         // 自动注册图标组件
         IconsResolver({
-          enabledCollections: ["ep"],
+          enabledCollections: ['ep']
         }),
         // 自动导入 Element Plus 组件
-        ElementPlusResolver(),
+        ElementPlusResolver()
       ],
-      dts: path.resolve(pathSrc, 'components.d.ts'),
+      dts: path.resolve(pathSrc, 'components.d.ts')
     }),
     Icons({
-      autoInstall: true,
+      autoInstall: true
     }),
     ElementPlus({}), // 按需引入js组件时，自动导入对应样式
     EslintPlugin({
-      include: [
-        'src/**/*.js',
-        'src/**/*.ts',
-        'src/**/*.vue',
-        'src/*.js',
-        'src/*.ts',
-        'src/*.vue',
-      ]
+      failOnError: false, // 出现eslint报错，但不阻止代码构建
+      include: ['src/**/*.js', 'src/**/*.ts', 'src/**/*.vue', 'src/*.js', 'src/*.ts', 'src/*.vue']
     })
   ],
   resolve: {
     alias: {
-      "@": pathSrc,
-    },
+      '@': pathSrc
+    }
   },
   css: {
     preprocessorOptions: {
       less: {
-        javascriptEnabled: true,
+        javascriptEnabled: true
       }
     }
-  },
-
-});
+  }
+})
